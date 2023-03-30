@@ -1,13 +1,16 @@
 class ProductsController < ApplicationController
   def index
     @products = Product.all
-    render template: "products/index"
-# render json: @products This will render the same but with "created_at"
+    render :index
   end
+
+  def show
+    @product =  Product.find_by(id: params[:id])
+    render :show
+  end
+
 end
-
-
-
+# render json: @products This will render the same but with "created_at"
 
   # def synthwear
   #   render json: {message: "SynthWear Inventory"}
