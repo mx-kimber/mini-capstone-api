@@ -10,7 +10,7 @@ product.save
 product = Product.new(name: "MorphSuit", price: 200_000, image_url: "https://www.morphsuits.com/media/catalog/product/cache/937f440085cd52c4f06eb785557b6967/m/1/m1_m_p_mpinf_1.jpg", description: "New-gen MorphSuit |  breathable  |  formable to any size  |  easy to program  |  H3 hardware jack ports  |  Sec-URE Chip")
 product.save
 
-biochip_upgrades = Product.new(name: "Opt-Tech Elite 5", price: 50_000, image_url: "https://www.venturacountylasik.com/wp-content/uploads/woman-with-a-bionic-eye.jpg", description: "Opt-Tech Designs v.5 software | thermal upgrade | mini-jack retracer port | HueShift | Sec-ACCEL enhancement")
+product = Product.new(name: "Opt-Tech Elite 5", price: 50_000, image_url: "https://www.venturacountylasik.com/wp-content/uploads/woman-with-a-bionic-eye.jpg", description: "Opt-Tech Designs v.5 software | thermal upgrade | mini-jack retracer port | HueShift | Sec-ACCEL enhancement")
 product.save
 
 #  Character.create(name: "Luke", movie: movies.first)

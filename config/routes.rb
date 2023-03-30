@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  get "/products", to: "products#index"
+  get "/products/:synthwear", to: "products#index"
   # root web_request, controller plural, def action
 
   #get "/upgrades", controller: "products", action: "biochip_upgrades"
