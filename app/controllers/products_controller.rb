@@ -4,7 +4,7 @@ class ProductsController < ApplicationController
     render json: {message: "SynthWear Inventory"}
   end
 
-  def biochip_implants
+  def biochip_upgrades
     render json: {message: "Optical, Memory, language"}
   end
 

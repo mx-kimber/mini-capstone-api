@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   get "/synthwear", controller: "products", action: "synthwear"
   # root web_request, controller plural, def action
 
-  get "/biochip", controller: "products", action: "biochip_implants"
+  get "/upgrades", controller: "products", action: "biochip_upgrades"
   # root web_request, controller plural, def action
 
   get "/cybernetics", controller: "products", action: "cybernetics"
