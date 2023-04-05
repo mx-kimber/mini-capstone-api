@@ -23,12 +23,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_05_033505) do
 
   create_table "products", force: :cascade do |t|
     t.string "name"
+    t.string "made_by"
     t.integer "price"
     t.string "image_url"
     t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "made_by"
+
   end
 
 end
