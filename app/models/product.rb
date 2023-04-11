@@ -1,6 +1,10 @@
 class Product < ApplicationRecord
   belongs_to :supplier
 
+  def supplier
+    Supplier.where(id: supplier_id)
+  end
+
   def is_discounted?
     if price <= 10_000
       return true
@@ -16,5 +20,7 @@ class Product < ApplicationRecord
   def total
     price + tax
   end
+
+
 
 end

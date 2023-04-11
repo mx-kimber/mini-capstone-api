@@ -13,10 +13,9 @@ class ProductsController < ApplicationController
     @product = Product.new(
       name: name = params[:name],
       price: price = params[:price],
-      image_url: image_url = params[:image_url],
-      description: description = params[:description],
       quantity: quantity = params[:quantity],
-      supplier_id: supplier_id = params[:supplier_id]
+      image_url: image_url = params[:image_url],
+      description: description = params[:description]
     )
     @product.save
     render :show
@@ -29,7 +28,6 @@ class ProductsController < ApplicationController
     @product.image_url = params[:image_url] || @product.image_url
     @product.description = params[:description] || @product.description
     @product.quantity = params[:quantity] || @product.quantity
-    @product.supplier_id = params[:supplier_id] || @product.supplier_id
 
     @product.save
     render :show
