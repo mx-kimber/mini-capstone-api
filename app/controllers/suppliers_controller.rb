@@ -12,9 +12,9 @@ class SuppliersController < ApplicationController
 
   def create
     @supplier = Supplier.new(
-      name: name = params[:name],
-      email: email = params[:email],
-      phone_number: phone_number = params[:phone_number]
+      name: params[:name],
+      email: params[:email],
+      phone_number: params[:phone_number]
 
     )
     @supplier.save
