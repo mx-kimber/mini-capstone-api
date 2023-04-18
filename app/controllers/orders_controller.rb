@@ -1,11 +1,16 @@
 class OrdersController < ApplicationController
 
   def index
-    @orders = Order.all
+    @orders = Order.where(user_id: current_user.id)
     render :index
   end
 
   def show
+    if current_user.id == @order.user.id
+      render :show
+    else
+      render json: {message:"nope"}
+    end
     @order = Order.find_by(id: params[:id])
     render :show
   end
