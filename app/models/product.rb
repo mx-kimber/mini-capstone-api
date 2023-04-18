@@ -1,10 +1,7 @@
 class Product < ApplicationRecord
+  has_many :users
   belongs_to :supplier
   has_many :images
-
-  # def supplier
-  #   Supplier.where(id: supplier_id)
-  # end
 
   def is_discounted?
     if price <= 10_000
