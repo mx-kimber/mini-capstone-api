@@ -1,6 +1,8 @@
 class ProductsController < ApplicationController
 
   def index
+  # p current_user
+  #   render json: {message: "Denied. Try logging in."}, status: :unauthorized
     @products = Product.all
     render :index
   end
@@ -12,11 +14,11 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.new(
-      name: name = params[:name],
-      price: price = params[:price],
-      quantity: quantity = params[:quantity],
-      description: description = params[:description],
-      supplier_id: supplier_id = params[:supplier_id],
+      name: params[:name],
+      price: params[:price],
+      quantity: params[:quantity],
+      description: params[:description],
+      supplier_id: params[:supplier_id],
 
     )
     @product.save
