@@ -1,10 +1,14 @@
 class ProductsController < ApplicationController
 
   def index
-  # p current_user
-  #   render json: {message: "Denied. Try logging in."}, status: :unauthorized
+
     @products = Product.all
-    render :index
+    if current_user
+      render :index
+    else
+      render json: {message: "Please log in. Denied."}, status: :unauthorized
+    end
+
   end
 
   def show
