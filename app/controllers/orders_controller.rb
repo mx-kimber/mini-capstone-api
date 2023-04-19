@@ -1,18 +1,13 @@
 class OrdersController < ApplicationController
+before_action :authenticate_user
 
   def index
     @orders = current_user.orders
-    # @orders = Order.where(user_id: current_user.id)
     render :index
   end
 
   def show
-    if current_user.id == @order.user.id
-      render :show
-    else
-      render json: {message:"nope"}
-    end
-    @order = Order.find_by(id: params[:id])
+    @order = Order.find_by(id: params[:id], user_id: current_user.id)
     render :show
   end
 
@@ -30,8 +25,12 @@ class OrdersController < ApplicationController
       tax: calc_tax,
       total: calc_total
     )
+    if current_user.id == @order.user.id
+      @order.save
+      render :show
+    else
+      render json: {}, status: :unauthorized
+    end
 
-    @order.save
-    render :show
   end
 end
