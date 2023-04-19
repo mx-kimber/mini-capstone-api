@@ -1,14 +1,9 @@
 class ProductsController < ApplicationController
   before_action :authenticate_admin, except: [:index, :show]
+
   def index
-
     @products = Product.all
-    if current_user
-      render :index
-    else
-      render json: {message: "Please log in. Denied."}, status: :unauthorized
-    end
-
+    render :index
   end
 
   def show

@@ -25,12 +25,12 @@ before_action :authenticate_user
       tax: calc_tax,
       total: calc_total
     )
-    if current_user.id == @order.user.id
+    # if current_user.id == @order.user.id
       @order.save
       render :show
-    else
-      render json: {}, status: :unauthorized
-    end
+    # else
+    #   render json: {}, status: :unauthorized
+    # end
 
   end
 end
