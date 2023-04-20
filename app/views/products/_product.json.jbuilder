@@ -8,4 +8,5 @@ json.is_discounted? product.is_discounted?
 json.quantity product.quantity
 json.images product.images
 json.supplier product.supplier
+json.categories product.categories
 
