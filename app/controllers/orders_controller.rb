@@ -1,8 +1,9 @@
 class OrdersController < ApplicationController
-before_action :authenticate_user
+  before_action :authenticate_user
+
 
   def index
-    @orders = current_user.orders
+    @orders = current_user.orders #current_user is defined in application_controller (where everything set in there is inherited into ALL controllers (aka: "daddy" - Ok, ok, I mean parent controller. Just passing on the controller genes.  --  .orders is calling ALL orders for the current_user. This is the same syntax as calling it in Rails Console. current_user = Current_user
     render :index
   end
 
@@ -19,8 +20,6 @@ before_action :authenticate_user
 
     @order = Order.new(
       user_id: current_user.id,
-      product_id: params[:product_id],
-      quantity: params[:quantity],
       subtotal: calc_subtotal,
       tax: calc_tax,
       total: calc_total
