@@ -3,7 +3,7 @@ class OrdersController < ApplicationController
 
 
   def index
-    @orders = current_user.orders #current_user is defined in application_controller (where everything set in there is inherited into ALL controllers (aka: "daddy" - Ok, ok, I mean parent controller. Just passing on the controller genes.  --  .orders is calling ALL orders for the current_user. This is the same syntax as calling it in Rails Console. current_user = Current_user
+    @orders = current_user.orders
     render :index
   end
 
@@ -13,10 +13,15 @@ class OrdersController < ApplicationController
   end
 
   def create
-    product = Product.find_by(id: params[:product_id])
-      calc_subtotal = params[:quantity].to_i * product.price
-      calc_tax = calc_subtotal * 0.09
-      calc_total = calc_subtotal + calc_tax
+    carted_products = current_user.carted_products.where(status: "Carted")
+    calc_subtotal = 0
+    carted_products.each do |carted_product|
+      calc_subtotal += carted_product.quantity * carted_product.price
+    end
+
+    tax_rate = 0.09
+    calc_tax = calc_subtotal * tax_rate
+    calc_total = calc_subtotal + calc_tax
 
     @order = Order.new(
       user_id: current_user.id,
@@ -24,12 +29,10 @@ class OrdersController < ApplicationController
       tax: calc_tax,
       total: calc_total
     )
-    # if current_user.id == @order.user.id
       @order.save
+      carted_products.update_all(status: "purchased", order_id: @orider.id)
       render :show
-    # else
-    #   render json: {}, status: :unauthorized
-    # end
+
 
   end
 end
