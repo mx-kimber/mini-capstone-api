@@ -5,14 +5,14 @@ one:
   price: 1
   # url: MyString
   description: MyString
-  quantity: 1
-  supplier_id: 1
+  # quantity: 1
+  # supplier_id: 1
 
 two:
   name: MyString
   price: 1
   # url: MyString
   description: MyString
-  quantity: 1
-  supplier_id: 1
+  # quantity: 1
+  # supplier_id: 1
 

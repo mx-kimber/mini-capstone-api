@@ -1,5 +1,5 @@
 class Product < ApplicationRecord
-  has_many :users
+  # has_many :users
   belongs_to :supplier
   has_many :images
   has_many :category_products
@@ -7,17 +7,8 @@ class Product < ApplicationRecord
   has_many :carted_products
 
 
-  # def categories
-  #   categories = []
-  #   category_products.each do |cp|
-  #     categories << cp.category
-  #   end
-  #   categories
-  # end
-
-
   def is_discounted?
-    if price <= 10_000
+    if price <= 15_000
       return true
     else
       return false

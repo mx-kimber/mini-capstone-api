@@ -3,7 +3,7 @@ require "test_helper"
   class OrdersControllerTest < ActionDispatch::IntegrationTest
     setup do
       @user = User.create(name: "Test", email: "test@test.com", password: "password")
-      @order = Order.create(user_id: @user.id, product_id: Product.first.id, quantity: 10)
+      @order = Order.create(user_id: @user.id)
       post "/sessions.json", params: { email: "test@test.com", password: "password" }
       data = JSON.parse(response.body)
       @jwt = data["jwt"]
@@ -28,7 +28,7 @@ require "test_helper"
       assert_response 200
 
       data = JSON.parse(response.body)
-      assert_equal ["id", "quantity", "subtotal", "tax", "total", "product", "created_at", "updated_at"], data.keys
+      assert_equal ["id", "subtotal", "tax", "total", "created_at", "updated_at", "user_id", "carted_products"], data.keys
     end
   end
 
