@@ -1,3 +1,4 @@
+json.created_at product.created_at
 json.id product.id
 json.price product.price
 json.description product.description

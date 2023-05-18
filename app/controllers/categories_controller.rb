@@ -1,5 +1,6 @@
 class CategoriesController < ApplicationController
-  before_action :authenticate_admin, except: [:index, :show]
+before_action :authenticate_user
+  
   def index
     @categories = Category.all
     render :index
@@ -15,8 +16,12 @@ class CategoriesController < ApplicationController
       name: params[:name]
 
       )
-    @category.save
-    render :show
+      if @category.save
+        render :show
+      else
+        render json: {errors: @product.errors.full_messages}, status: :unprocessable_entity
+      end
+    
   end
 
   def update
@@ -28,7 +33,7 @@ class CategoriesController < ApplicationController
   end
 
   def destroy
-    @category = category.find_by(id: params[:id])
+    @category = Category.find_by(id: params[:id])
     @category.destroy
     render json: {message: "category as been destroyed successfully"}
   end
