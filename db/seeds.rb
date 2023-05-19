@@ -1,12 +1,10 @@
 User.create!([
-  {name: "Aug", email: "aug@aug.com", password_digest: "$2a$12$5FSU1431Ovx85G.OnC2SgundLk2pAkEKD0EHgaSTljVQLMxI3aZEO", admin: false},
-  {name: "Sarah", email: "saprice1@gmail.com", password_digest: "$2a$12$bOSrRA/63QHo5MlOhiXwaOXXKZ14EtLrJJLwfherHckYeKLlVxQwy", admin: false},
-  {name: "Korben", email: "Dallas@gmail.com", password_digest: "$2a$12$uttAFJ/.s4DFwfQxcCoVC.HWB9iRp0Q/qWNd7.zDud9HjUCmn1XzS", admin: false},
-  {name: "Ducky", email: "duckerson@duck.com", password_digest: "$2a$12$tWG19jNGd2QMBg7Xi6m.h.jb4PmT/aBMRI90KuUVkc8O/ytk8SHWu", admin: false}
+  {name: "Testing-Admin", email: "a@test.com", password_digest: "$2a$12$uttAFJ/.s4DFwfQxcCoVC.HWB9iRp0Q/qWNd7.zDud9HjUCmn1XzS", admin: true},
+  {name: "Testing-User", email: "u@test.com", password_digest: "$2a$12$tWG19jNGd2QMBg7Xi6m.h.jb4PmT/aBMRI90KuUVkc8O/ytk8SHWu", admin: false}
 ])
 Supplier.create!([
-  {name: "Triple-Tech", email: "tripletech@tech.com", phone_number: "555-555-5623"},
-  {name: "New-gen", email: "newgen@gen.com", phone_number: "555-555-3461"},
+  {name: "TripleTech", email: "tripletech@tech.com", phone_number: "555-555-5623"},
+  {name: "New-Gen", email: "newgen@gen.com", phone_number: "555-555-3461"},
   {name: "OptTech Designs", email: "opt_tech@designs.com", phone_number: "555-555-3579"},
   {name: "Nike-X", email: "newnike@nike.come", phone_number: "555-555-1735"},
   {name: "Synthwear", email: "synthwear@synth.com", phone_number: "555-556-2401"}
@@ -14,7 +12,9 @@ Supplier.create!([
 Category.create!([
   {name: "Jackets"},
   {name: "Footwear"},
-  {name: "Enhancements"}
+  {name: "Enhancements"},
+  {name: "Pants"},
+  {name: "Boosters"}
 ])
 Product.create!([
   {name: "JackrunnerZ", price: "6000.0", description: "Stylish, lightweight, water/sludge resistant, accelerator module with control", quantity: 11, supplier_id: 4},
@@ -26,42 +26,22 @@ Product.create!([
 ])
 
 Image.create!([
-  {product_id: 1, url: "https://m.media-amazon.com/images/I/812+BMs97FL.jpg"},
-  {product_id: 1, url: "https://i.ebayimg.com/images/g/A28AAOSwVQhi2fwH/s-l1600.jpg"},
-  {product_id: 1, url: "https://cdn.thisiswhyimbroke.com/thumb/holographic-tracksuit_400x333.jpg"},
-  {product_id: 1, url: "https://cdn.shopify.com/s/files/1/0593/9635/8337/products/il_fullxfull.4415663843_16vv_1800x1800.jpg?v=1669038438"},
-  {product_id: 2, url: "https://cdn.shopify.com/s/files/1/0593/9635/8337/products/il_fullxfull.4415663843_16vv_1800x1800.jpg?v=1669038438https://cdn.shopify.com/s/files/1/0593/9635/8337/products/il_fullxfull.4415663843_16vv_1800x1800.jpg?v=1669038438"},
-  {product_id: 2, url: "https://cdn.shopify.com/s/files/1/0593/9635/8337/products/il_fullxfull.4254004489_3mno_1800x1800.jpg?v=1664462377"},
-  {product_id: 2, url: "https://cdn.shopify.com/s/files/1/0593/9635/8337/products/il_fullxfull.4203082890_aygo_1800x1800.jpg?v=1664368763"},
-  {product_id: 3, url: "https://i.pinimg.com/originals/d3/31/07/d3310782d54099197eda510b9d8351a2.jpg"},
-  {product_id: 3, url: "https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F3821c0f6-bd9d-4108-8529-056ef571760d_1000x562.jpeg"},
-  {product_id: 3, url: "https://static.wikia.nocookie.net/cyberpunk/images/6/66/Q115_thrustersF.png/revision/latest/scale-to-width/360?cb=20211111101756"},
-  {product_id: 4, url: "https://cdn.thisiswhyimbroke.com/thumb/back-to-the-future-shoes_400x333.jpg"},
-  {product_id: 4, url: "https://cdn.thisiswhyimbroke.com/thumb/back-to-the-future-shoes_400x333.jpg"},
-  {product_id: 4, url: "https://i.pinimg.com/736x/00/4e/cd/004ecd5f1cb05ea6a67208ca04779507--gifts.jpg"},
-  {product_id: 5, url: "https://media.techeblog.com/images/vollebak-thermal-camouflage-jacket-invisibility-cloak.jpg"},
-  {product_id: 5, url: "https://s3.amazonaws.com/images.gearjunkie.com/uploads/2022/09/52370107467_f5f71679e0_k.jpg"},
-  {product_id: 5, url: "https://www.venturacountylasik.com/wp-content/uploads/woman-with-a-bionic-eye.jpg"},
-  {product_id: 5, url: "https://i.pcmag.com/imagery/articles/03XYSGe5uz7vZsNwXawTLLY-1..v1614045181.jpg"},
-  {product_id: 6, url: "https://i.pinimg.com/originals/4d/f2/2d/4df22d0c37fa442364f64a457f622426.jpg"}
+  {product_id: 3, url: "https://m.media-amazon.com/images/I/812+BMs97FL.jpg"},
+  {product_id: 3, url: "https://cdn.thisiswhyimbroke.com/thumb/holographic-tracksuit_400x333.jpg"},
+  {product_id: 6, url: "https://cdn.shopify.com/s/files/1/0593/9635/8337/products/il_fullxfull.4254004489_3mno_1800x1800.jpg?v=1664462377"},
+  {product_id: 6, url: "https://cdn.shopify.com/s/files/1/0593/9635/8337/products/il_fullxfull.4203082890_aygo_1800x1800.jpg?v=1664368763"},
+  {product_id: 5, url: "https://i.pinimg.com/originals/d3/31/07/d3310782d54099197eda510b9d8351a2.jpg"},
+  {product_id: 5, url: "https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F3821c0f6-bd9d-4108-8529-056ef571760d_1000x562.jpeg"},
+  {product_id: 1, url: "https://cdn.thisiswhyimbroke.com/thumb/back-to-the-future-shoes_400x333.jpg"},
+  {product_id: 1, url: "https://i.pinimg.com/736x/00/4e/cd/004ecd5f1cb05ea6a67208ca04779507--gifts.jpg"},
+  {product_id: 2, url: "https://media.techeblog.com/images/vollebak-thermal-camouflage-jacket-invisibility-cloak.jpg"},
+  {product_id: 2, url: "https://s3.amazonaws.com/images.gearjunkie.com/uploads/2022/09/52370107467_f5f71679e0_k.jpg"},
+  {product_id: 4, url: "https://www.venturacountylasik.com/wp-content/uploads/woman-with-a-bionic-eye.jpg"},
+  {product_id: 4, url: "https://i.pcmag.com/imagery/articles/03XYSGe5uz7vZsNwXawTLLY-1..v1614045181.jpg"},
+  {product_id: 4, url: "https://i.pinimg.com/originals/4d/f2/2d/4df22d0c37fa442364f64a457f622426.jpg"}
 ])
 CategoryProduct.create!([
-  {category_id: 2, product_id: 4},
-  {category_id: 2, product_id: 3},
-  {category_id: 1, product_id: 5},
-  {category_id: 3, product_id: 6}
+  {category_id: 3, product_id: 4},
 ])
 
-# CartedProduct.create!([
-#   {user_id: 1, quantity: 1, status: nil, product_id: nil, order_id: nil},
-#   {user_id: 3, quantity: 1, status: nil, product_id: nil, order_id: nil},
-#   {user_id: 3, quantity: 2, status: "carted", product_id: nil, order_id: nil},
-#   {user_id: 3, quantity: 2, status: "carted", product_id: nil, order_id: nil},
-#   {user_id: 3, quantity: 1, status: "carted", product_id: nil, order_id: nil},
-#   {user_id: 4, quantity: 3, status: "carted", product_id: nil, order_id: nil},
-#   {user_id: 4, quantity: nil, status: nil, product_id: nil, order_id: nil},
-#   {user_id: 4, quantity: nil, status: nil, product_id: nil, order_id: nil},
-#   {user_id: 4, quantity: 1, status: nil, product_id: nil, order_id: nil},
-#   {user_id: 1, quantity: 1, status: "carted", product_id: 8, order_id: nil},
-#   {user_id: 1, quantity: 1, status: "carted", product_id: 27, order_id: nil}
-# ])
+
