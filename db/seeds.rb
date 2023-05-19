@@ -1,6 +1,6 @@
 User.create!([
-  {name: "Testing-Admin", email: "a@test.com", password_digest: "$2a$12$uttAFJ/.s4DFwfQxcCoVC.HWB9iRp0Q/qWNd7.zDud9HjUCmn1XzS", admin: true},
-  {name: "Testing-User", email: "u@test.com", password_digest: "$2a$12$tWG19jNGd2QMBg7Xi6m.h.jb4PmT/aBMRI90KuUVkc8O/ytk8SHWu", admin: false}
+  {name: "User", email: "user@test.com", password_digest: "$2a$12$N5TGfniDIfddEvck4h6/He8KJUiGBkvRgrDg8BK5RT9OGV2TWjuoO", admin: false},
+  {name: "Admin", email: "admin@test.com", password_digest: "$2a$12$PDvfS1pvVDfJjUBKd79Tpu4mK3YdEY9k8YS2aBj.BEuck4cMZmsxy", admin: true}
 ])
 Supplier.create!([
   {name: "TripleTech", email: "tripletech@tech.com", phone_number: "555-555-5623"},
@@ -8,13 +8,6 @@ Supplier.create!([
   {name: "OptTech Designs", email: "opt_tech@designs.com", phone_number: "555-555-3579"},
   {name: "Nike-X", email: "newnike@nike.come", phone_number: "555-555-1735"},
   {name: "Synthwear", email: "synthwear@synth.com", phone_number: "555-556-2401"}
-])
-Category.create!([
-  {name: "Jackets"},
-  {name: "Footwear"},
-  {name: "Enhancements"},
-  {name: "Pants"},
-  {name: "Boosters"}
 ])
 Product.create!([
   {name: "JackrunnerZ", price: "6000.0", description: "Stylish, lightweight, water/sludge resistant, accelerator module with control", quantity: 11, supplier_id: 4},
@@ -24,7 +17,6 @@ Product.create!([
   {name: "Hov-R Flight Boots", price: "156000.0", description: "A pair of black and chrome thruster boots, lightweight frames, water/sludge resistant, g7X-flight chip, accelerator module V", quantity: 5, supplier_id: 1},
   {name: "StealthSuit", price: "200000.0", description: "Breathable, formable to any size, easy to program, H3 hardware, mini-jack port, Sec-URE Chip", quantity: 1, supplier_id: 1}
 ])
-
 Image.create!([
   {product_id: 3, url: "https://m.media-amazon.com/images/I/812+BMs97FL.jpg"},
   {product_id: 3, url: "https://cdn.thisiswhyimbroke.com/thumb/holographic-tracksuit_400x333.jpg"},
@@ -41,7 +33,12 @@ Image.create!([
   {product_id: 4, url: "https://i.pinimg.com/originals/4d/f2/2d/4df22d0c37fa442364f64a457f622426.jpg"}
 ])
 CategoryProduct.create!([
-  {category_id: 3, product_id: 4},
+  {category_id: 3, product_id: 4}
 ])
-
-
+Category.create!([
+  {name: "Jackets"},
+  {name: "Footwear"},
+  {name: "Enhancements"},
+  {name: "Pants"},
+  {name: "Boosters"}
+])
