@@ -24,26 +24,17 @@ Rails.application.routes.draw do
   patch "/images/:id" => "images#update"
   delete "/images/:id" => "images#destroy"
 
-  # get "/users" => "users#index"
-  # get "/users/:id" => "users#show"
   post "/users" => "users#create"
-  # patch "/users/:id" => "users#update"
-  # delete "/users/:id" => "users#destroy"
-
+  
   post "/sessions" => "sessions#create"
 
   get "/orders" => "orders#index"
   get "/orders/:id" => "orders#show"
   post "/orders" => "orders#create"
-  # patch "/orders/:id" => "orders#update"
-  # delete "/orders/:id" => "orders#destroy"
-
-
-
+ 
   get "/carted_products" => "carted_products#index"
-  # get "/carted_products/:id" => "carted_products#show"
+   get "/carted_products/:id" => "carted_products#show"
   post "/carted_products" => "carted_products#create"
-  # patch "/carted_products/:id" => "carted_products#update"
   delete "/carted_products/:id" => "carted_products#destroy"
 
 end
